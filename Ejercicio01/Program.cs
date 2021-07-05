@@ -9,8 +9,15 @@ namespace Ejercicio01
 {
     class Program
     {
+        /// <summary>
+        /// Task : 
+        /// Implementar IFactory, Crear una empresa de Chevrolet y de mazda y adicionando nueva lógica
+        /// </summary>
+        /// <param name="args">The arguments.</param>
         static void Main(string[] args)
         {
+            
+
             //Implentar IFactory
             var factory = new Factory(10)
             {
