@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ejercicio01.Models
 {
-    public class Car
+    public abstract class Car
     {
         public string IdPlate { get; set; }
         public string Color { get; set; }

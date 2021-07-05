@@ -1,4 +1,5 @@
-﻿using Ejercicio01.Models;
+﻿using Ejercicio01.Contract;
+using Ejercicio01.Models;
 using Ejercicio01.Models.MarkChevrolet;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,8 @@ namespace Ejercicio01
     {
         static void Main(string[] args)
         {
-            Factory factory = new Factory(10)
+            //Implentar IFactory
+            var factory = new Factory(10)
             {
                 Cars = new List<Car>(),
                 Mark = "Chevrolet",

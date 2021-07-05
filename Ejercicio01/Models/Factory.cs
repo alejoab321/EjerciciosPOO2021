@@ -1,11 +1,12 @@
-﻿using Ejercicio01.Models.MarkChevrolet;
+﻿using Ejercicio01.Contract;
+using Ejercicio01.Models.MarkChevrolet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Ejercicio01.Models
 {
-    public class Factory
+    public class Factory : IFactory
     {
         
         public List<Car> Cars { get; set; }
@@ -23,7 +24,7 @@ namespace Ejercicio01.Models
             
             if (AbilityCreateCar > Cars.Count )
             {
-                Car car = new Car(idPlate,color,numberDoors,price, Mark, model);
+                Chevrolet car = new Chevrolet(idPlate,color,numberDoors,price, Mark, model);               
                 Cars.Add(car);
                 Console.WriteLine("El carro se creó satisfactoriamente");
             }
