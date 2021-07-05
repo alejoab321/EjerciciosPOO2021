@@ -15,30 +15,26 @@ namespace Ejercicio01
                 Mark = "Chevrolet",
                 TotalSales = 0
             };
-            Car car1 = new Car()
+            
+
+            
+
+            for (int i = 0; i < factory.AbilityCreateCar + 1; i++)
             {
-                Color = "Blue",
-                Price = 5000,
-                IdPlate = "KWH-125",
-                NumberDoors = 4,
-                Model = 2020,
-                Mark = "Chevrolet"
-            };
 
-            Car car2 = new Car()
-            {
-                Color = "Blue",
-                Price = 4000,
-                IdPlate = "KWH-155",
-                NumberDoors = 4,
-                Model = 2018,
-                Mark = "Chevrolet"
-            };
-
-            factory.CreateCar(car1);
-            factory.CreateCar(car2);
-
+                factory.CreateCar(idPlate: "ACH-728", color: "Blue", numberDoors: 4, price: 2000, model: 2018);
+            }
             factory.SeeCarAll();
+
+            Customer carlos = new Customer()
+            {
+                Cash = 2900,
+                IdClient = "10456984123",
+                Name = "Carlos"
+            };
+
+            factory.SellCar(carlos);
+
 
             //Car car1 = new Car("Red",2015,"Mazda");
 

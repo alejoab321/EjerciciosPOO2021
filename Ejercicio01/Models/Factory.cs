@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Ejercicio01.Models
 {
@@ -19,10 +17,13 @@ namespace Ejercicio01.Models
             AbilityCreateCar = abilityCreateCar;
         }
 
-        public void CreateCar(Car car) 
+        public void CreateCar(string idPlate, string color, int numberDoors, int price, int model) 
         {
-            if (AbilityCreateCar >= Cars.Count )
+            
+            if (AbilityCreateCar > Cars.Count )
             {
+                Car car = new Car(idPlate,color,numberDoors,price, Mark, model);
+
                 Cars.Add(car);
                 Console.WriteLine("El carro se creó satisfactoriamente");
             }
@@ -39,6 +40,26 @@ namespace Ejercicio01.Models
             {
                 Console.WriteLine(car);
             }
+        }
+
+        private void SeeCarAll(double Cash)
+        {
+            int count = 0;
+            foreach (var car in Cars)
+            {
+                if (Cash >= car.Price)
+                {
+                    Console.WriteLine(car);
+                    count++;
+                }
+                
+            }
+            Console.WriteLine(count == 0 ? "No tienes suficientes fondos, por favor ahorra" : $"Tienes la capacidad para comprar un carro estás a solo un paso!!!!");
+        }
+
+        public void SellCar(Customer customer)
+        {
+            SeeCarAll(customer.Cash);
         }
 
     }

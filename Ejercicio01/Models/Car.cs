@@ -38,11 +38,10 @@ namespace Ejercicio01.Models
             Mark = mark;
         }
 
-        public Car(string idPlate, string color, double speed, int numberDoors, int price, string mark, int model)
+        public Car(string idPlate, string color, int numberDoors, int price, string mark, int model)
         {
             IdPlate = idPlate;
             Color = color;
-            Speed = speed;
             NumberDoors = numberDoors;
             Price = price;
             Mark = mark;
