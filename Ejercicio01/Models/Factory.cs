@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ejercicio01.Models.MarkChevrolet;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -23,7 +24,6 @@ namespace Ejercicio01.Models
             if (AbilityCreateCar > Cars.Count )
             {
                 Car car = new Car(idPlate,color,numberDoors,price, Mark, model);
-
                 Cars.Add(car);
                 Console.WriteLine("El carro se creó satisfactoriamente");
             }
@@ -71,6 +71,11 @@ namespace Ejercicio01.Models
             return null;
             
 
+        }
+
+        public int SizeCarStore()
+        {
+            return Cars.Count;
         }
 
         public Car SellCarSelectCustomer(Customer customer, string color, int model)
