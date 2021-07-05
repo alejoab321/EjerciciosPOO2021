@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Linq;
 
 namespace Ejercicio01.Models
 {
@@ -42,24 +42,45 @@ namespace Ejercicio01.Models
             }
         }
 
-        private void SeeCarAll(double Cash)
+        private List<Car> SeeCarAll(double Cash)
         {
             int count = 0;
+            List<Car> carFilterBuyCustomer = new List<Car>();
             foreach (var car in Cars)
             {
                 if (Cash >= car.Price)
                 {
                     Console.WriteLine(car);
                     count++;
+                    carFilterBuyCustomer.Add(car);
                 }
                 
             }
-            Console.WriteLine(count == 0 ? "No tienes suficientes fondos, por favor ahorra" : $"Tienes la capacidad para comprar un carro estás a solo un paso!!!!");
+            //Console.WriteLine(count == 0 ? "No tienes suficientes fondos, por favor ahorra" : $"Tienes la capacidad para comprar un carro estás a solo un paso!!!!");
+            return carFilterBuyCustomer;
         }
 
-        public void SellCar(Customer customer)
+        private Car SellCar(Customer customer, string color, int model)
         {
-            SeeCarAll(customer.Cash);
+            var selectCarBuy = SeeCarAll(customer.Cash);
+            if (selectCarBuy.Any())
+            {
+                Car carBuy = selectCarBuy.Find(x => x.Color == color && x.Model == model);
+                return carBuy;
+            }
+            return null;
+            
+
+        }
+
+        public Car SellCarSelectCustomer(Customer customer, string color, int model)
+        {
+            Car car = SellCar(customer, color, model);
+            customer.Cash -= car.Price;
+            customer.Cars.Add(car);
+            TotalSales += car.Price;
+            Cars.Remove(car);
+            return car;
         }
 
     }

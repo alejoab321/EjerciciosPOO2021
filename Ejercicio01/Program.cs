@@ -33,9 +33,15 @@ namespace Ejercicio01
                 Name = "Carlos"
             };
 
-            factory.SellCar(carlos);
+            factory.SellCarSelectCustomer(carlos,"Blue",2018);
 
+            factory.SeeCarAll();
 
+            foreach (var car in carlos.Cars)
+            {
+                Console.WriteLine("Carro = {0}",car);
+            }
+            Console.WriteLine("Cash = {0}", carlos.Cash);
             //Car car1 = new Car("Red",2015,"Mazda");
 
             //Console.WriteLine(car1);
